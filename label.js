@@ -6,13 +6,36 @@ let modal = new bootstrap.Modal(document.getElementById('Registrar'));
         });
 
 
-        let p1 = document.getElementById("contraseña1").value;
-        let p2 = document.getElementById("contraseña2").value;
-        
-        if (p1 != p2) {
-            alert("Las contraeñas deben de coincidir");
-            return false;
-          } else {
-            alert("Todo esta correcto");
-            return true; 
-          };
+        function verificarPasswords() {
+ 
+            // Ontenemos los valores de los campos de contraseñas 
+            pass1 = document.getElementById('contraseña1');
+            pass2 = document.getElementById('contraseña2');
+         
+            // Verificamos si las constraseñas no coinciden 
+            if (pass1.value != pass2.value) {
+         
+                // Si las constraseñas no coinciden mostramos un mensaje 
+                document.getElementById("error").classList.add("mostrar");
+         
+                return false;
+            } else {
+         
+                // Si las contraseñas coinciden ocultamos el mensaje de error
+                document.getElementById("error").classList.remove("mostrar");
+         
+                // Mostramos un mensaje mencionando que las Contraseñas coinciden 
+                document.getElementById("ok").classList.remove("ocultar");
+         
+                // Desabilitamos el botón de login 
+                document.getElementById("btnregistro").disabled = true;
+         
+                // Refrescamos la página (Simulación de envío del formulario) 
+                setTimeout(function() {
+                    location.reload();
+                }, 3000);
+         
+                return true;
+            }
+         
+        }
