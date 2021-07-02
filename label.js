@@ -6,4 +6,13 @@ let modal = new bootstrap.Modal(document.getElementById('Registrar'));
         });
 
 
-let 
+        let p1 = document.getElementById("contraseña1").value;
+        let p2 = document.getElementById("contraseña2").value;
+        
+        if (p1 != p2) {
+            alert("Las contraeñas deben de coincidir");
+            return false;
+          } else {
+            alert("Todo esta correcto");
+            return true; 
+          };
